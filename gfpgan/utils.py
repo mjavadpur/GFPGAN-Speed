@@ -99,7 +99,7 @@ class GFPGANer():
         self.gfpgan = self.gfpgan.to(self.device)
 
         #MJ:
-        if torch.cuda.device_count() >1:
+        if torch.cuda.is_available() and torch.cuda.device_count() >1:
             self.gfpgan = torch.nn.DataParallel(self.gfpgan)
 
     @torch.no_grad()
