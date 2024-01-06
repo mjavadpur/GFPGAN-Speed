@@ -68,6 +68,11 @@ def main():
             from basicsr.archs.rrdbnet_arch import RRDBNet
             from realesrgan import RealESRGANer
             model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=2)
+
+            # MJ:
+            if torch.cuda.is_available() and torch.cuda.device_count() > 1:
+                model = torch.nn.DataParallel(model)
+
             bg_upsampler = RealESRGANer(
                 scale=2,
                 model_path='https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth',
