@@ -169,4 +169,9 @@ def main():
 
 
 if __name__ == '__main__':
+    stratInf = perf_counter()
     main()
+
+    endInf = perf_counter()
+
+    print(f"Inferenece Time in inference_gfpgan(multiprocessing): {endInf - stratInf}")

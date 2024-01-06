@@ -177,4 +177,4 @@ if __name__ == '__main__':
 
     endInf = perf_counter()
 
-    print(f"Inferenece Time in multiprocessing: {endInf - stratInf}")
+    print(f"Inferenece Time in inference_gfpgan_normal: {endInf - stratInf}")
