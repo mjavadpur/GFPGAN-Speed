@@ -98,6 +98,10 @@ class GFPGANer():
         self.gfpgan.eval()
         self.gfpgan = self.gfpgan.to(self.device)
 
+        #MJ:
+        if torch.cuda.device_count() >1:
+            self.gfpgan = torch.nn.DataParallel(self.gfpgan)
+
     @torch.no_grad()
     def enhance(self, img, has_aligned=False, only_center_face=False, paste_back=True, weight=0.5):
         self.face_helper.clean_all()

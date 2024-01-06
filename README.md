@@ -1,9 +1,11 @@
-# 多进程执行 GFPGAN  
+ [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mjavadpur/GFPGAN-Speed/blob/main/quick_demo.ipynb)
 
-1. 采用多进程 GFPGAN, 提高资源利用  
-2. 去除了 `cropped_faces` 和 `restored_faces` 的无关的中间图片的保存
-3. 根据自身设备修改进程池中的进程个数  
-`inference-gfpgan.py` 中的第 `160` 行
+# Multiple processes execute GFPGAN
+
+1. Use multi-process GFPGAN to improve resource utilization
+2. Removed the saving of irrelevant intermediate images of `cropped_faces` and `restored_faces`
+3. Modify the number of processes in the process pool according to your own equipment
+Line `160` in `inference-gfpgan.py`
 
 ```python
 ctx = torch.multiprocessing.get_context("spawn")
